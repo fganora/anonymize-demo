@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="specific-anonymize-json" doc:id="2149cf14-c76a-42d7-afc4-5102aed209c5" >
+		<http:listener doc:name="specific-anonymize-json-demo" doc:id="b3b185d5-f590-419f-bd53-f2fa02399b4d" config-ref="HTTP_Listener_config" path="/specific-anonymize-json-demo"/>
+		<ee:transform doc:name="Anonymize" doc:id="65010f9a-adb3-44e9-afc7-2385ff6eaeb6" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+
+var placeHolder = "*** Secret ***"
+---
+payload map ($ update {
+    case name at .name -> placeHolder
+    case balance at .balance -> placeHolder
+    case age at .age -> placeHolder
+    case email at .email -> placeHolder
+    case phone at .phone -> placeHolder
+    case address at .address -> placeHolder
+    case friends at .friends -> friends map {id: $$, name: "Friend-"++$$
+    }
+})
+
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3bb42270-4e56-4567-8a6b-4b8c624ea866" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="call-generic-anonymize-flow" doc:id="dfbf146c-388d-4063-abd7-3787748321c3" >
+		<http:listener doc:name="test-generic-anonymize" doc:id="6c04c002-5857-47f4-bc6f-6154b4f112b7" config-ref="HTTP_Listener_config" path="/test-generic-anonymize" allowedMethods="POST"/>
+		<set-variable value="#[%dw 2.0
+output application/java
+---
+{ contentType: message.attributes.headers.'content-type',
+  placeholderValue: &quot;*** secret ***&quot;,
+  fieldsToAnonymize: readUrl(&quot;classpath://config/fields-to-anonymize.json&quot;, &quot;application/json&quot;)	
+}]" doc:name="anonymizationParams" doc:id="61b653aa-0dc5-4ab7-a4bb-6640e4927d31" variableName="anonymizationParams"/>
+		<flow-ref doc:name='generic-anonymize-flow' doc:id="04961d06-e886-462a-9d17-926b380af55b" name="generic-anonymize-flow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="afdcd4a4-0e33-486e-810a-c62c0506ef08" />
+	</flow>
+	<flow name="generic-anonymize-flow" doc:id="004d72c2-19fe-41e7-8a72-c70eabfb7667" >
+		<choice doc:name="Choice" doc:id="049ed66d-9578-465c-ae8a-3d713b50302a" >
+			<when expression='#[vars.anonymizationParams.contentType == "application/json"]'>
+				<ee:transform doc:name="Anonymize JSON payload" doc:id="171a9ae9-9cfa-4d59-8846-b1ecb16c9c78">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+import modules::Anonymization
+output application/json
+---
+
+Anonymization::anonymize(payload, 
+ 	vars.anonymizationParams.placeholderValue, 
+ 	vars.anonymizationParams.fieldsToAnonymize
+    )
+
+
+
+ ]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+			</when>
+			<when expression='#[vars.anonymizationParams.contentType == "application/xml"]'>
+				<ee:transform doc:name="Anonymize XML payload" doc:id="d6c1dca7-ec89-4776-b7ce-bca28a911b7d" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+import modules::Anonymization
+output application/xml
+---
+
+Anonymization::anonymize(payload, 
+ 	vars.anonymizationParams.placeholderValue, 
+ 	vars.anonymizationParams.fieldsToAnonymize
+    )
+]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+			</when>
+			<otherwise >
+				<raise-error doc:name="UnsupportedContentType" doc:id="5adbc03d-c57b-4bf8-b784-ce519a4d4ae8" type="MULE:VALIDATION" description="Unsupported payload content type for anonymization (supported content types are application/json and application/xml)"/>
+			</otherwise>
+		</choice>
+		<remove-variable doc:name="anonymizationParams" doc:id="de3dc66a-e4aa-4d4d-ab6d-b8b7a94c5c08" variableName="anonymizationParams"/>
+	</flow>
+</mule>

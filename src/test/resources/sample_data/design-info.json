@@ -1,0 +1,13 @@
+{
+  "sampleData": {
+    "171a9ae9-9cfa-4d59-8846-b1ecb16c9c78": {
+      "payload": "sample_data/list_json.json",
+      "vars-contentType": "sample_data/defaultstringtype_1.dwl",
+      "vars-fieldsToAnonymize": "sample_data/list_defaultstringtype.json",
+      "vars-placeholderValue": "sample_data/defaultstringtype.dwl"
+    },
+    "65010f9a-adb3-44e9-afc7-2385ff6eaeb6": {
+      "payload": "sample_data/list_json_1.json"
+    }
+  }
+}

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="anonymize-test-suite.xml" />
+	<munit:test name="test-specific-anonymize-json" doc:id="26ceb13d-a46a-4936-bafb-15efb4bc9b7a" description="Test">
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="f1556ba8-8f56-42f5-b22d-24d30ce0fc36" >
+				<munit:payload value='[
+  {
+    "_id": "5edfb75ffd4a9b4b2da8d73a",
+    "index": 0,
+    "guid": "3c9d923a-f071-413e-a490-cd2761133853",
+    "isActive": false,
+    "balance": "$2,196.47",
+    "picture": "http://placehold.it/32x32",
+    "age": 40,
+    "eyeColor": "green",
+    "name": "Regina Wilder",
+    "gender": "female",
+    "company": "APPLICA",
+    "email": "reginawilder@applica.com",
+    "phone": "+1 (930) 443-2511",
+    "address": "237 Maple Avenue, Longbranch, Virgin Islands, 1614",
+    "about": "Ipsum proident exercitation velit laborum incididunt pariatur ipsum est officia non ad. Quis adipisicing aute aliquip aute velit reprehenderit magna voluptate labore ullamco aliquip tempor non dolor. Enim sint voluptate in enim sunt exercitation culpa reprehenderit enim do veniam esse incididunt fugiat. Laborum incididunt Lorem non in et anim eu velit nulla enim. Officia sint veniam consectetur elit voluptate. Est voluptate veniam dolore magna ut nostrud magna ea do pariatur eu do consequat. Labore ut cupidatat enim et dolore nulla enim ullamco dolor officia ipsum.\r\n",
+    "registered": "2016-12-26T10:22:33 -01:00",
+    "latitude": -68.342531,
+    "longitude": 93.796524,
+    "tags": [
+      "sunt",
+      "non",
+      "non",
+      "veniam",
+      "aliqua",
+      "Lorem",
+      "anim"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Baxter Chase"
+      },
+      {
+        "id": 1,
+        "name": "Roy Rich"
+      },
+      {
+        "id": 2,
+        "name": "Carrie Dickerson"
+      }
+    ],
+    "greeting": "Hello, Regina Wilder! You have 1 unread messages.",
+    "favoriteFruit": "banana"
+  },
+  {
+    "_id": "5edfb75f02105cf49b4c6ac2",
+    "index": 1,
+    "guid": "e8975a56-ed34-4345-aee8-c8062f490059",
+    "isActive": false,
+    "balance": "$2,515.50",
+    "picture": "http://placehold.it/32x32",
+    "age": 31,
+    "eyeColor": "brown",
+    "name": "Catherine Chan",
+    "gender": "female",
+    "company": "ROCKABYE",
+    "email": "catherinechan@rockabye.com",
+    "phone": "+1 (861) 459-2914",
+    "address": "502 Beadel Street, Rivereno, Minnesota, 4478",
+    "about": "Nostrud ullamco velit occaecat aute mollit. Cupidatat enim laboris occaecat minim mollit tempor. Nostrud veniam do nostrud laborum ullamco enim nulla excepteur consectetur aliquip dolore id excepteur. Eiusmod sunt eiusmod sit incididunt et amet eiusmod et nisi duis do. Ut amet esse consectetur do minim consequat consectetur irure reprehenderit. Minim in est adipisicing irure amet.\r\n",
+    "registered": "2016-10-04T07:30:36 -02:00",
+    "latitude": 62.577574,
+    "longitude": -141.531602,
+    "tags": [
+      "anim",
+      "eiusmod",
+      "ipsum",
+      "aliqua",
+      "sunt",
+      "cupidatat",
+      "reprehenderit"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Margret Hogan"
+      },
+      {
+        "id": 1,
+        "name": "England Deleon"
+      },
+      {
+        "id": 2,
+        "name": "Nicole Johns"
+      }
+    ],
+    "greeting": "Hello, Catherine Chan! You have 10 unread messages.",
+    "favoriteFruit": "strawberry"
+  },
+  {
+    "_id": "5edfb75fec8cb94d0f899e0c",
+    "index": 2,
+    "guid": "3103b5a5-1a4a-4cd7-b9bb-f232fb697799",
+    "isActive": false,
+    "balance": "$1,755.38",
+    "picture": "http://placehold.it/32x32",
+    "age": 35,
+    "eyeColor": "green",
+    "name": "Hines Nieves",
+    "gender": "male",
+    "company": "MIRACULA",
+    "email": "hinesnieves@miracula.com",
+    "phone": "+1 (838) 512-2654",
+    "address": "774 Duryea Court, Hollymead, Missouri, 7649",
+    "about": "Do est occaecat do Lorem pariatur adipisicing deserunt in. Magna officia ullamco adipisicing velit ex consectetur officia incididunt sint. Dolor anim occaecat laboris pariatur amet aliqua elit anim voluptate laboris officia in ipsum. Lorem veniam laborum magna anim ullamco et aute. Ullamco dolor minim ullamco anim cupidatat occaecat reprehenderit nostrud magna. Tempor esse in ad deserunt. Ut nostrud proident labore fugiat adipisicing tempor irure id culpa adipisicing cillum.\r\n",
+    "registered": "2017-01-14T04:32:45 -01:00",
+    "latitude": 19.52569,
+    "longitude": -99.980922,
+    "tags": [
+      "velit",
+      "aliquip",
+      "qui",
+      "minim",
+      "irure",
+      "do",
+      "consequat"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Reid Alvarez"
+      },
+      {
+        "id": 1,
+        "name": "Lessie Meadows"
+      },
+      {
+        "id": 2,
+        "name": "Cotton Durham"
+      }
+    ],
+    "greeting": "Hello, Hines Nieves! You have 10 unread messages.",
+    "favoriteFruit": "apple"
+  },
+  {
+    "_id": "5edfb75f834b91a450720e7a",
+    "index": 3,
+    "guid": "d9d8aef9-b7fc-4b41-9302-17e0ca50a3f8",
+    "isActive": false,
+    "balance": "$3,832.55",
+    "picture": "http://placehold.it/32x32",
+    "age": 38,
+    "eyeColor": "green",
+    "name": "Bean Wilcox",
+    "gender": "male",
+    "company": "HOMETOWN",
+    "email": "beanwilcox@hometown.com",
+    "phone": "+1 (837) 531-3422",
+    "address": "338 Moultrie Street, Como, New Mexico, 7031",
+    "about": "Quis qui esse quis ut tempor eu ipsum enim aliqua sint cupidatat ex id. Lorem dolore minim velit minim consequat aute aliqua cupidatat aliquip ea laboris nostrud ex Lorem. Ipsum aliquip id mollit nostrud velit deserunt exercitation aliqua sunt nulla in ut aute et.\r\n",
+    "registered": "2014-08-05T08:30:18 -02:00",
+    "latitude": 0.676801,
+    "longitude": 97.130736,
+    "tags": [
+      "incididunt",
+      "labore",
+      "officia",
+      "sunt",
+      "consectetur",
+      "cupidatat",
+      "laborum"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Harrell Potts"
+      },
+      {
+        "id": 1,
+        "name": "Eleanor Humphrey"
+      },
+      {
+        "id": 2,
+        "name": "Zelma Garcia"
+      }
+    ],
+    "greeting": "Hello, Bean Wilcox! You have 7 unread messages.",
+    "favoriteFruit": "banana"
+  },
+  {
+    "_id": "5edfb75f55f00e967d7b98ef",
+    "index": 4,
+    "guid": "50981b7e-50a0-4002-a6c6-8dcec69f15d6",
+    "isActive": false,
+    "balance": "$3,167.35",
+    "picture": "http://placehold.it/32x32",
+    "age": 27,
+    "eyeColor": "brown",
+    "name": "Jimmie Bolton",
+    "gender": "female",
+    "company": "KOG",
+    "email": "jimmiebolton@kog.com",
+    "phone": "+1 (954) 447-2962",
+    "address": "656 Bleecker Street, Juntura, Virginia, 1579",
+    "about": "Est pariatur culpa occaecat nulla occaecat. Consequat anim occaecat amet cupidatat velit ea nisi laboris. Sit minim quis consequat proident enim sint nostrud consectetur ex et.\r\n",
+    "registered": "2016-01-04T06:18:23 -01:00",
+    "latitude": 43.735551,
+    "longitude": -98.35235,
+    "tags": [
+      "Lorem",
+      "exercitation",
+      "sunt",
+      "culpa",
+      "ad",
+      "qui",
+      "nulla"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Albert Justice"
+      },
+      {
+        "id": 1,
+        "name": "Rosanna Wilkerson"
+      },
+      {
+        "id": 2,
+        "name": "Ivy Love"
+      }
+    ],
+    "greeting": "Hello, Jimmie Bolton! You have 8 unread messages.",
+    "favoriteFruit": "banana"
+  }
+]' mediaType="application/json" />
+			</munit:set-event>
+			<flow-ref doc:name="specific-anonymize-json" doc:id="1fa74c8e-6771-46e7-92ef-b20e36024c55" name="specific-anonymize-json"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Expected anonymized payload" doc:id="16c72b25-7e86-4885-b834-dd58322d2fac" actual="#[payload]" expected='#[readUrl("classpath://expected_test_results/output_payload_specific_anonymize.json", "application/json")]' message="Output payload does not match expected payload in file expected_test_results/output_payload_specific_anonymize.json"/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="test-generic-anonymize-json" doc:id="3ecb8711-de81-402c-a541-86b3c821f902">
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="4ac75f23-d271-4082-9a7c-af8047c075df" >
+				<munit:payload value='[
+  {
+    "_id": "5edfb75ffd4a9b4b2da8d73a",
+    "index": 0,
+    "guid": "3c9d923a-f071-413e-a490-cd2761133853",
+    "isActive": false,
+    "balance": "$2,196.47",
+    "picture": "http://placehold.it/32x32",
+    "age": 40,
+    "eyeColor": "green",
+    "name": "Regina Wilder",
+    "gender": "female",
+    "company": "APPLICA",
+    "email": "reginawilder@applica.com",
+    "phone": "+1 (930) 443-2511",
+    "address": "237 Maple Avenue, Longbranch, Virgin Islands, 1614",
+    "about": "Ipsum proident exercitation velit laborum incididunt pariatur ipsum est officia non ad. Quis adipisicing aute aliquip aute velit reprehenderit magna voluptate labore ullamco aliquip tempor non dolor. Enim sint voluptate in enim sunt exercitation culpa reprehenderit enim do veniam esse incididunt fugiat. Laborum incididunt Lorem non in et anim eu velit nulla enim. Officia sint veniam consectetur elit voluptate. Est voluptate veniam dolore magna ut nostrud magna ea do pariatur eu do consequat. Labore ut cupidatat enim et dolore nulla enim ullamco dolor officia ipsum.\r\n",
+    "registered": "2016-12-26T10:22:33 -01:00",
+    "latitude": -68.342531,
+    "longitude": 93.796524,
+    "tags": [
+      "sunt",
+      "non",
+      "non",
+      "veniam",
+      "aliqua",
+      "Lorem",
+      "anim"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Baxter Chase"
+      },
+      {
+        "id": 1,
+        "name": "Roy Rich"
+      },
+      {
+        "id": 2,
+        "name": "Carrie Dickerson"
+      }
+    ],
+    "greeting": "Hello, Regina Wilder! You have 1 unread messages.",
+    "favoriteFruit": "banana"
+  },
+  {
+    "_id": "5edfb75f02105cf49b4c6ac2",
+    "index": 1,
+    "guid": "e8975a56-ed34-4345-aee8-c8062f490059",
+    "isActive": false,
+    "balance": "$2,515.50",
+    "picture": "http://placehold.it/32x32",
+    "age": 31,
+    "eyeColor": "brown",
+    "name": "Catherine Chan",
+    "gender": "female",
+    "company": "ROCKABYE",
+    "email": "catherinechan@rockabye.com",
+    "phone": "+1 (861) 459-2914",
+    "address": "502 Beadel Street, Rivereno, Minnesota, 4478",
+    "about": "Nostrud ullamco velit occaecat aute mollit. Cupidatat enim laboris occaecat minim mollit tempor. Nostrud veniam do nostrud laborum ullamco enim nulla excepteur consectetur aliquip dolore id excepteur. Eiusmod sunt eiusmod sit incididunt et amet eiusmod et nisi duis do. Ut amet esse consectetur do minim consequat consectetur irure reprehenderit. Minim in est adipisicing irure amet.\r\n",
+    "registered": "2016-10-04T07:30:36 -02:00",
+    "latitude": 62.577574,
+    "longitude": -141.531602,
+    "tags": [
+      "anim",
+      "eiusmod",
+      "ipsum",
+      "aliqua",
+      "sunt",
+      "cupidatat",
+      "reprehenderit"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Margret Hogan"
+      },
+      {
+        "id": 1,
+        "name": "England Deleon"
+      },
+      {
+        "id": 2,
+        "name": "Nicole Johns"
+      }
+    ],
+    "greeting": "Hello, Catherine Chan! You have 10 unread messages.",
+    "favoriteFruit": "strawberry"
+  },
+  {
+    "_id": "5edfb75fec8cb94d0f899e0c",
+    "index": 2,
+    "guid": "3103b5a5-1a4a-4cd7-b9bb-f232fb697799",
+    "isActive": false,
+    "balance": "$1,755.38",
+    "picture": "http://placehold.it/32x32",
+    "age": 35,
+    "eyeColor": "green",
+    "name": "Hines Nieves",
+    "gender": "male",
+    "company": "MIRACULA",
+    "email": "hinesnieves@miracula.com",
+    "phone": "+1 (838) 512-2654",
+    "address": "774 Duryea Court, Hollymead, Missouri, 7649",
+    "about": "Do est occaecat do Lorem pariatur adipisicing deserunt in. Magna officia ullamco adipisicing velit ex consectetur officia incididunt sint. Dolor anim occaecat laboris pariatur amet aliqua elit anim voluptate laboris officia in ipsum. Lorem veniam laborum magna anim ullamco et aute. Ullamco dolor minim ullamco anim cupidatat occaecat reprehenderit nostrud magna. Tempor esse in ad deserunt. Ut nostrud proident labore fugiat adipisicing tempor irure id culpa adipisicing cillum.\r\n",
+    "registered": "2017-01-14T04:32:45 -01:00",
+    "latitude": 19.52569,
+    "longitude": -99.980922,
+    "tags": [
+      "velit",
+      "aliquip",
+      "qui",
+      "minim",
+      "irure",
+      "do",
+      "consequat"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Reid Alvarez"
+      },
+      {
+        "id": 1,
+        "name": "Lessie Meadows"
+      },
+      {
+        "id": 2,
+        "name": "Cotton Durham"
+      }
+    ],
+    "greeting": "Hello, Hines Nieves! You have 10 unread messages.",
+    "favoriteFruit": "apple"
+  },
+  {
+    "_id": "5edfb75f834b91a450720e7a",
+    "index": 3,
+    "guid": "d9d8aef9-b7fc-4b41-9302-17e0ca50a3f8",
+    "isActive": false,
+    "balance": "$3,832.55",
+    "picture": "http://placehold.it/32x32",
+    "age": 38,
+    "eyeColor": "green",
+    "name": "Bean Wilcox",
+    "gender": "male",
+    "company": "HOMETOWN",
+    "email": "beanwilcox@hometown.com",
+    "phone": "+1 (837) 531-3422",
+    "address": "338 Moultrie Street, Como, New Mexico, 7031",
+    "about": "Quis qui esse quis ut tempor eu ipsum enim aliqua sint cupidatat ex id. Lorem dolore minim velit minim consequat aute aliqua cupidatat aliquip ea laboris nostrud ex Lorem. Ipsum aliquip id mollit nostrud velit deserunt exercitation aliqua sunt nulla in ut aute et.\r\n",
+    "registered": "2014-08-05T08:30:18 -02:00",
+    "latitude": 0.676801,
+    "longitude": 97.130736,
+    "tags": [
+      "incididunt",
+      "labore",
+      "officia",
+      "sunt",
+      "consectetur",
+      "cupidatat",
+      "laborum"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Harrell Potts"
+      },
+      {
+        "id": 1,
+        "name": "Eleanor Humphrey"
+      },
+      {
+        "id": 2,
+        "name": "Zelma Garcia"
+      }
+    ],
+    "greeting": "Hello, Bean Wilcox! You have 7 unread messages.",
+    "favoriteFruit": "banana"
+  },
+  {
+    "_id": "5edfb75f55f00e967d7b98ef",
+    "index": 4,
+    "guid": "50981b7e-50a0-4002-a6c6-8dcec69f15d6",
+    "isActive": false,
+    "balance": "$3,167.35",
+    "picture": "http://placehold.it/32x32",
+    "age": 27,
+    "eyeColor": "brown",
+    "name": "Jimmie Bolton",
+    "gender": "female",
+    "company": "KOG",
+    "email": "jimmiebolton@kog.com",
+    "phone": "+1 (954) 447-2962",
+    "address": "656 Bleecker Street, Juntura, Virginia, 1579",
+    "about": "Est pariatur culpa occaecat nulla occaecat. Consequat anim occaecat amet cupidatat velit ea nisi laboris. Sit minim quis consequat proident enim sint nostrud consectetur ex et.\r\n",
+    "registered": "2016-01-04T06:18:23 -01:00",
+    "latitude": 43.735551,
+    "longitude": -98.35235,
+    "tags": [
+      "Lorem",
+      "exercitation",
+      "sunt",
+      "culpa",
+      "ad",
+      "qui",
+      "nulla"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Albert Justice"
+      },
+      {
+        "id": 1,
+        "name": "Rosanna Wilkerson"
+      },
+      {
+        "id": 2,
+        "name": "Ivy Love"
+      }
+    ],
+    "greeting": "Hello, Jimmie Bolton! You have 8 unread messages.",
+    "favoriteFruit": "banana"
+  }
+]' mediaType="application/json" />
+			</munit:set-event>
+			<set-variable value='#[%dw 2.0
+output application/java
+---
+{ contentType: "application/json",
+  placeholderValue: "*** secret ***",
+  fieldsToAnonymize: readUrl("classpath://config/fields-to-anonymize.json", "application/json")	
+}]' doc:name="anonymizationParams" doc:id="57bd2421-8637-4cd6-892a-2cb289b1eccd" variableName="anonymizationParams" />
+			<flow-ref doc:name="generic-anonymize-flow" doc:id="7a4fb0da-7b9f-497c-9090-b6e0965e4bb7" name="generic-anonymize-flow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Expected anonymized payload" doc:id="3fe4b956-d146-4fac-af5d-a275e44608af" actual="#[payload]" expected='#[readUrl("classpath://expected_test_results/output_payload_generic_anonymize.json", "application/json")]' message="Output payload does not match expected payload in file expected_test_results/output_payload_generic_anonymize.json" />
+		</munit:validation>
+	</munit:test>
+
+</mule>
